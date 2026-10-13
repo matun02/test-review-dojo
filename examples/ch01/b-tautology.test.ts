@@ -1,4 +1,8 @@
-// テスト B: 期待値を「実装と同じ計算」で作っているテスト
+// テスト B: 期待値を「実装と同じ定数・計算」から作るテスト
+//
+// 意図: 「無料になる金額」や「送料」は今後変わるかもしれない。
+//       数値をテストに直接書くと、変更のたびにテストも直す必要がある。
+//       そこで定数を import して期待値を組み立て、数値の変更に自動で追従させたい。
 import { describe, expect, it } from 'vitest';
 import { FREE_THRESHOLD } from './rules';
 import { BASE_FEE, shippingFee } from './shipping';

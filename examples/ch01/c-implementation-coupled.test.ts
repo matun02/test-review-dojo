@@ -1,4 +1,9 @@
-// テスト C: 内部の関数をモックして「呼び出し方」を検証しているテスト
+// テスト C: 内部の関数をモックして「呼び出し方」を検証するテスト
+//
+// 意図: shippingFee の仕事は「判定結果を料金に変換すること」だけで、
+//       無料かどうかの判定は isFreeShipping の仕事。
+//       判定ロジックの影響を受けずに shippingFee だけを切り離して検証したいので、
+//       isFreeShipping をモック（偽物）に差し替え、正しく呼ばれたかも確かめる。
 import { describe, expect, it, vi } from 'vitest';
 import { isFreeShipping } from './rules';
 import { shippingFee } from './shipping';
