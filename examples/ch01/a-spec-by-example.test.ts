@@ -2,7 +2,7 @@
 //
 // 意図: 仕様書の文章を、そのまま「この入力なら、この出力」という具体例に置き換える。
 //       期待値は仕様から手で決める（実装のコードは見ない）。
-//       正常系に加えて、仕様が定めた異常系（不正な小計）も検証する。
+//       正常系に加えて、仕様が定めた準正常系（不正な小計の拒否）も検証する。
 import { describe, expect, it } from 'vitest';
 import { shippingFee } from './shipping';
 
@@ -21,7 +21,7 @@ describe('shippingFee（A: 仕様を具体値で書く）', () => {
     });
   });
 
-  describe('異常系', () => {
+  describe('準正常系', () => {
     it('小計が負の数なら RangeError', () => {
       expect(() => shippingFee({ subtotal: -1, isMember: false })).toThrow(RangeError);
     });
